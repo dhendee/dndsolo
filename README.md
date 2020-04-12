@@ -1,3 +1,3 @@
 # dndsolo
 
-Work in master, production is gh-pages branch.
+Master branch = gh-pages
