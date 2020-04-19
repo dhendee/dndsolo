@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to play Dungeons & Dragons (D&D) solo without a Dungeon Master (DM).">
+    <meta name="keywords" content="D&D, DnD, dnd, Dungeons & Dragons, solo play, DM, Dungeon Master, solo, one PC">
+    <title>DnD Solo - Dice</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/javascripts/dice.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163704199-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-163704199-1');
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <!--
+      <section class="section">
+        <form id="form" autocomplete="off">
+          <div class="field">
+            <input id="input" class="input is-large has-text-centered" type="text">
+          </div>
+        </form>
+      </section>
+      -->
+      <section class="section">
+        <div id="dice" class="field">
+          <div class="columns">
+            <div class="column is-5">
+              <a data-value="4" class="button die is-sided-4 is-size-3" data-shortcut="a" title="a">4</a>
+              <a data-value="6" class="button die is-sided-6 is-size-3" data-shortcut="s" title="s">6</a>
+              <a data-value="8" class="button die is-sided-8 is-size-3" data-shortcut="d" title="d">8</a>
+              <a data-value="+" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="f" title="f">+</a>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <a data-value="reset" class="button is-dark has-text-grey-light is-size-3" data-shortcut="r" title="r">
+                <span class="icon">
+                  <i class="fas fa-undo"></i>
+                </span>
+              </a>
+            </div>
+            <div class="column is-5 has-text-right">
+              <a data-value="-" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="j" title="j">-</a>
+              <a data-value="10" class="button die is-sided-10 is-size-3" data-shortcut="k" title="k">10</a>
+              <a data-value="12" class="button die is-sided-12 is-size-3" data-shortcut="l" title="l">12</a>
+              <a data-value="20" class="button die is-sided-20 is-size-3" data-shortcut=";" title=";">20</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h1 id="result" class="title has-text-primary is-size-0 has-text-centered"></h1>
+        <div id="results">
+        </div>
+      </section>
+    </div>
+    <style>
+      .is-size-0 {
+        font-size: 5rem;
+      }
+      .die {
+        background-color: #00d1b2;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+      }
+      .die:hover {
+        filter: 
+          brightness(1.1);
+      }
+      .die:active, .die.active {
+        filter: 
+          brightness(.9);
+      }
+      .die.is-sided-4 {
+        -webkit-mask-image: url(/images/dice/4.svg);
+        mask-image: url(/images/dice/4.svg);
+      }
+      .die.is-sided-6 {
+        -webkit-mask-image: url(/images/dice/6.svg);
+        mask-image: url(/images/dice/6.svg);
+      }
+      .die.is-sided-8 {
+        -webkit-mask-image: url(/images/dice/8.svg);
+        mask-image: url(/images/dice/8.svg);
+      }
+      .die.is-sided-10 {
+        -webkit-mask-image: url(/images/dice/10.svg);
+        mask-image: url(/images/dice/10.svg);
+      }
+      .die.is-sided-12 {
+        -webkit-mask-image: url(/images/dice/12.svg);
+        mask-image: url(/images/dice/12.svg);
+      }
+      .die.is-sided-20 {
+        -webkit-mask-image: url(/images/dice/20.svg);
+        mask-image: url(/images/dice/20.svg);
+      }
+    </style>
+    <script>
+      $(function () {
+        $('#dice a').click(function() {
+          var button = $(this);
+          var current = parseInt($('#result').html() ? $('#result').html() : 0);
+          var result = 0;
+          var units = '';
+          if (button.data('value') == 'reset') {
+            $('#result, #results').html('');
+            return false;
+          } else if (button.data('value') == '+') {
+            result = 1;
+            units = '+';
+          } else if (button.data('value') == '-') {
+            result = -1;
+          } else {
+            result = Math.ceil(Math.random() * Math.floor(button.data('value'))); 
+            units = '<span class="icon is-small die is-sided-' + button.data('value') + '"></span> ';
+          }
+          $('#result').html(current + result);
+          $('#results').prepend('<h6 class="subtitle is-5 has-text-centered has-text-grey-light">' + units + result + '</h6>');
+          return false; 
+        });
+
+        $('body').keypress(function(event) {
+          var special = '!"#$%&\'()*+,./:;<=>?@[\]^`{|}~'
+          var key = event.key
+          if (special.indexOf(key) != -1) {
+            key = '\\' + key;
+          }
+          var button = $('#dice a[data-shortcut=' + key + ']');
+          if (button.length == 1) {
+            button.addClass('active').click();
+            setTimeout(function() { 
+              button.removeClass('active'); 
+            }, 80);
+          }
+          return true;
+        });
+
+
+
+        /*
+        $('#input').focus();
+        $('#form').submit(function() {
+          var string = $('#input').val();
+          var result = dice.roll(string);
+          $('#results').append('<h1 class="title is-1 has-text-centered">' + result + '</h1><h6 class="subtitle is-6 has-text-centered has-text-grey-light">' + dice.stringify(result) + '</h6>');
+          $('#input').val('').focus();
+          return false;
+        });
+        */
+      });
+    </script>
+  </body>
+</html>
