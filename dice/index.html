@@ -72,8 +72,11 @@
             <div class="column is-2 has-text-centered">
               <div class="has-text-centered">
                 <a data-value="reset" class="button is-dark has-text-grey is-size-3" data-shortcut="r" title="r">
-                  <span class="icon">
+                  <span class="icon icon-undo">
                     <i class="fas fa-undo"></i>
+                  </span>
+                  <span class="icon icon-trash is-hidden">
+                    <i class="fas fa-trash"></i>
                   </span>
                 </a>
                 <p class="subtitle has-text-grey is-size-6">r</p>
@@ -166,6 +169,10 @@
         -webkit-mask-image: url(/images/dice/20.svg);
         mask-image: url(/images/dice/20.svg);
       }
+      a[data-value='reset'].button .icon:first-child:not(:last-child),
+      a[data-value='reset'].button .icon:last-child:not(:first-child) {
+        margin: 0;
+      }
     </style>
     <script>
       $(function () {
@@ -177,11 +184,12 @@
           if (button.data('value') == 'reset') {
             if ($('#result').html() == '') {
               $('#log').html('');
-              return false;
+            } else {
+              $('#log').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-primary has-text-weight-bold">' + $('#result').html() + '</h2>' + $('#results').html());
+              $('#result, #results').html('');
             }
-            $('#log').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-primary has-text-weight-bold">' + $('#result').html() + '</h2>' + $('#results').html());
-            $('#result, #results').html('');
-            return false;
+            $('.icon-undo, .icon-trash').toggleClass('is-hidden');
+            return;
           } else if (button.data('value') == '+') {
             result = 1;
             units = '+';
@@ -191,9 +199,11 @@
             result = Math.ceil(Math.random() * Math.floor(button.data('value'))); 
             units = '<span class="icon is-small die is-sided-' + button.data('value') + '"></span> ';
           }
+          if ($('.icon-undo').hasClass('is-hidden')) {
+            $('.icon-undo, .icon-trash').toggleClass('is-hidden');
+          }
           $('#result').html(current + result);
           $('#results').prepend('<h5 class="subtitle is-5 has-text-centered has-text-grey-light">' + units + result + '</h5>');
-          return false; 
         });
 
         $('body').keypress(function(event) {
