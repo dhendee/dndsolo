@@ -117,6 +117,8 @@
         <h1 id="result" class="title has-text-primary is-size-0 has-text-centered"></h1>
         <div id="results">
         </div>
+        <div id="log">
+        </div>
       </section>
     </div>
     <style>
@@ -173,6 +175,10 @@
           var result = 0;
           var units = '';
           if (button.data('value') == 'reset') {
+            if ($('#result').html() == '') {
+              return false;
+            }
+            $('#log').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-primary has-text-weight-bold">' + $('#result').html() + '</h2>' + $('#results').html());
             $('#result, #results').html('');
             return false;
           } else if (button.data('value') == '+') {
@@ -185,7 +191,7 @@
             units = '<span class="icon is-small die is-sided-' + button.data('value') + '"></span> ';
           }
           $('#result').html(current + result);
-          $('#results').prepend('<h6 class="subtitle is-5 has-text-centered has-text-grey-light">' + units + result + '</h6>');
+          $('#results').prepend('<h5 class="subtitle is-5 has-text-centered has-text-grey-light">' + units + result + '</h5>');
           return false; 
         });
 
