@@ -40,21 +40,24 @@
             <div class="column is-5">
               <div class="level">
                 <div class="level-item">
-                  <div class="has-text-centered">
-                    <a data-value="4" class="button die is-sided-4 is-size-3 has-badge-rounded" data-shortcut="a" data-badge="8">4</a>
-                    <p class="subtitle has-text-grey is-size-6">a</p>
+                  <div class="has-text-centered is-relative">
+                    <a data-value="4" class="button die is-sided-4 is-size-3" data-shortcut="a">4</a>
+                    <span class="badge has-text-dark has-background-grey">0</span>
+                    <p class="subtitle has-text-grey-dark is-size-6">a</p>
                   </div>
                 </div>
                 <div class="level-item">
-                  <div class="has-text-centered">
+                  <div class="has-text-centered is-relative">
                     <a data-value="6" class="button die is-sided-6 is-size-3" data-shortcut="s">6</a>
-                    <p class="subtitle has-text-grey is-size-6">s</p>
+                    <span class="badge has-text-dark has-background-grey">0</span>
+                    <p class="subtitle has-text-grey-dark is-size-6">s</p>
                   </div>
                 </div>
                 <div class="level-item">
-                  <div class="has-text-centered">
+                  <div class="has-text-centered is-relative">
                     <a data-value="8" class="button die is-sided-8 is-size-3" data-shortcut="d">8</a>
-                    <p class="subtitle has-text-grey is-size-6">d</p>
+                    <span class="badge has-text-dark has-background-grey">0</span>
+                    <p class="subtitle has-text-grey-dark is-size-6">d</p>
                   </div>
                 </div>
                 <div class="level-item">
@@ -64,7 +67,7 @@
                         <i class="fas fa-plus"></i>
                       </span>                      
                     </a>
-                    <p class="subtitle has-text-grey is-size-6">f</p>
+                    <p class="subtitle has-text-grey-dark is-size-6">f</p>
                   </div>
                 </div>
               </div>
@@ -79,7 +82,7 @@
                     <i class="fas fa-trash"></i>
                   </span>
                 </a>
-                <p class="subtitle has-text-grey is-size-6">r</p>
+                <p class="subtitle has-text-grey-dark is-size-6">r</p>
               </div>
             </div>
             <div class="column is-5 has-text-right">
@@ -91,25 +94,28 @@
                         <i class="fas fa-minus"></i>
                       </span>                                            
                     </a>
-                    <p class="subtitle has-text-grey is-size-6">j</p>
+                    <p class="subtitle has-text-grey-dark is-size-6">j</p>
                   </div>
                 </div>
                 <div class="level-item">
-                  <div class="has-text-centered">
+                  <div class="has-text-centered is-relative">
                     <a data-value="10" class="button die is-sided-10 is-size-3" data-shortcut="k">10</a>
-                    <p class="subtitle has-text-grey is-size-6">k</p>
+                    <span class="badge has-text-dark has-background-grey">0</span>
+                    <p class="subtitle has-text-grey-dark is-size-6">k</p>
                   </div>
                 </div>
                 <div class="level-item">
-                  <div class="has-text-centered">
+                  <div class="has-text-centered is-relative">
                     <a data-value="12" class="button die is-sided-12 is-size-3" data-shortcut="l">12</a>
-                    <p class="subtitle has-text-grey is-size-6">l</p>
+                    <span class="badge has-text-dark has-background-grey">0</span>
+                    <p class="subtitle has-text-grey-dark is-size-6">l</p>
                   </div>
                 </div>
                 <div class="level-item">
-                  <div class="has-text-centered">
+                  <div class="has-text-centered is-relative">
                     <a data-value="20" class="button die is-sided-20 is-size-3" data-shortcut=";">20</a>
-                    <p class="subtitle has-text-grey is-size-6">;</p>
+                    <span class="badge has-text-dark has-background-grey">0</span>
+                    <p class="subtitle has-text-grey-dark is-size-6">;</p>
                   </div>
                 </div>
             </div>
@@ -136,6 +142,7 @@
         -webkit-mask-position: center;
         mask-position: center;
         font-weight: 800;
+        position: relative;
       }
       .die:hover {
         filter: 
@@ -168,6 +175,21 @@
       .die.is-sided-20 {
         -webkit-mask-image: url(/images/dice/20.svg);
         mask-image: url(/images/dice/20.svg);
+      }
+      .badge {
+        position: absolute;
+        top: .125rem;
+        right: .125rem;
+        font-size: .5rem;
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: .75rem;
+        border: .25rem solid #363636;
+        font-size: .75rem;
+        line-height: 1rem;
+        font-weight: 800;        
+        display: none;
       }
       a[data-value='reset'].button .icon:first-child:not(:last-child),
       a[data-value='reset'].button .icon:last-child:not(:first-child) {
