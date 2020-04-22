@@ -203,7 +203,18 @@
             $('.icon-undo, .icon-trash').toggleClass('is-hidden');
           }
           $('#result').html(current + result);
-          $('#results').prepend('<h5 class="subtitle is-5 has-text-centered has-text-grey-light">' + units + result + '</h5>');
+          if ((units == '+' || result == -1) && ($('#results .subtitle:eq(0):contains(+)').length == 1 || $('#results .subtitle:eq(0):contains(-)').length == 1)) {
+            // if pior result entry was a +1 or -1, increment/decrement prior result entry rather than create a new one
+            var prior = parseInt($('#results .subtitle:eq(0)').html()) || 0;
+            var adjustment = parseInt(units + result);
+            var adjusted = prior + adjustment;
+            if (adjusted >= 0) {
+              adjusted = '+' + adjusted;
+            }
+            $('#results .subtitle:eq(0)').html(adjusted);
+          } else {
+            $('#results').prepend('<h5 class="subtitle is-5 has-text-centered has-text-grey-light">' + units + result + '</h5>');
+          }
         });
 
         $('body').keypress(function(event) {
