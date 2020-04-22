@@ -62,7 +62,7 @@
                 </div>
                 <div class="level-item">
                   <div class="has-text-centered">
-                    <a data-value="+" class="button is-dark is-size-3 has-text-light" data-shortcut="f">
+                    <a data-value="+" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="f">
                       <span class="icon">
                         <i class="fas fa-plus"></i>
                       </span>                      
@@ -89,7 +89,7 @@
               <div class="level">
                 <div class="level-item">
                   <div class="has-text-centered">
-                    <a data-value="-" class="button is-dark is-size-3 has-text-light" data-shortcut="j">
+                    <a data-value="-" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="j">
                       <span class="icon">
                         <i class="fas fa-minus"></i>
                       </span>                                            
@@ -204,6 +204,7 @@
           var result = 0;
           var units = '';
           if (button.data('value') == 'reset') {
+            $('.badge').html('0').hide();
             if ($('#result').html() == '') {
               $('#log').html('');
             } else {
@@ -218,8 +219,15 @@
           } else if (button.data('value') == '-') {
             result = -1;
           } else {
-            result = Math.ceil(Math.random() * Math.floor(button.data('value'))); 
-            units = '<span class="icon is-small die is-sided-' + button.data('value') + '"></span> ';
+            var value = button.data('value');
+            result = Math.ceil(Math.random() * Math.floor(value)); 
+            units = '<span class="icon is-small die is-sided-' + value + '"></span> ';
+            var badge = $('.is-sided-' + value).siblings('.badge');
+            var badgeval = parseInt(badge.html());
+            badge.html(badgeval + 1);
+            if (badgeval > 0) {
+              badge.show();
+            }
           }
           if ($('.icon-undo').hasClass('is-hidden')) {
             $('.icon-undo, .icon-trash').toggleClass('is-hidden');
