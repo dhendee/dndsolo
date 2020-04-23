@@ -8,6 +8,8 @@ Last weekend, I completed a solo Dungeons & Dragons level 1-20 campaign that I p
 
 I had so much fun playing D&D solo that I thought I’d share how I approached it, and what worked well for me.
 
+READMORE
+
 A couple of disclaimers before I start. I’m not going to get into why you might want to play D&D solo — maybe we can get into that in a future post. We’ll just assume you’ve decided to give it a shot. Also, this isn’t a definitive guide, just what worked for me. There are a lot of other great guides for playing solo, and I borrowed a lot from other folks (I especially found the <a href="https://dndduet.com/" target="_blank">one-on-one guide</a> from DnD Duet invaluable). I’m sure there are plenty of resources I’ve overlooked; if you know any others that aren’t represented, please let me know and I’ll try and add them to the resources section at the end.
 
 In this guide we’ll first talk about adventure and character creation for solo play. We then divee into each of the three pillars of Dungeons & Dragons: exploration, combat, and social interaction, with a special emphasis on tools to make solo play more fun & efficient.
@@ -94,3 +96,13 @@ After giving myself a week off to decompress from the <em>To Hell and Back Again
 Aside from trying out Sidekicks, there’s at least one other thing I’d like to try out: keeping a campaign log. Without a group to talk to during and between sessions, and not wanting to annoy my family, a session journal would have been a good idea.
 
 Even just a few private notes here and there would have been a nice memento, and I think journaling about sessions might improve the Social Interaction pillar a bit as well. 
+
+<h2 class="title is-2">Further Reading</h2>  
+             
+<ul>
+<li>What inspired this site: <a href="https://dndduet.com/" target="_blank"><em>DnD Duet</em></a></li>
+<li>Two made-for-solo adventures I've played: <a href="https://www.dmsguild.com/product/288363/To-Hell-and-Back-Again" target="_blank"><em>To Hell and Back Again</em></a> and <a href="https://www.dmsguild.com/product/220997/DD-Solo-Adventure-The-Death-Knights-Squire" target="_blank"><em>The Death Knights Squire</em></a></li>
+<li>The DM ‘emulator’ <a href="https://homebrewery.naturalcrit.com/share/rkmo0t9k4Q" target="_blank"><em>MUNE</em></a> and the earlier project it was based on, <a href="https://www.drivethrurpg.com/product/20798/Mythic-Game-Master-Emulator" target="_blank"><em>Mythic</em></a></li>
+<li>A Solo D&D ‘engine’: <a href="https://www.dmsguild.com/product/284060/Solo-Adventurers-Guide--DD-Solo-Engine" target="_blank"><em>Solo Adventurer's Guide</em></a></li>
+<li>Solo character inspiration: The Character Creation Forge on the <a href="https://totalpartythrillcast.com/" target="_blank"><em>Total Party Thrill</em></a> podcast</li>
+</ul>

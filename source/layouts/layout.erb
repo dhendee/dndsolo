@@ -29,7 +29,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            DnD Solo
+            <a href="/" class="has-text-white">DnD Solo</a>
           </h1>
           <h2 class="subtitle">
             Resources for playing Dungeons & Dragons by yourself.
@@ -45,6 +45,12 @@
               <h1 class="title is-1"><%= current_article.title %></h1>
             <% end %>
             <%= yield %>
+            <% if !current_article.nil? %>
+              <hr>
+              <h4 class="subtitle is-4">Comments</h4>
+              <script defer src="https://cdn.commento.io/js/commento.js"></script>
+              <div id="commento"></div>
+            <% end %>
           </div>
         </div>
       </div>
