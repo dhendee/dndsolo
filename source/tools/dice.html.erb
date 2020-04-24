@@ -26,115 +26,127 @@
   </head>
   <body>
     <div class="container">
-      <div id="text-input" class="columns">
-        <div class="column is-6 is-offset-3">
-          <nav class="panel has-background-grey-dark">
-            <div class="panel-block">
-              <form id="form" class="form" autocomplete="off">
-                <p class="control">
-                  <input id="input" class="input" type="text" placeholder="4d6+3">
-                </p>
-              </form>
-            </div>
-          </nav>
+      <div id="manual" class="is-overlay">
+        <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <nav class="panel has-background-grey-dark">
+              <div class="panel-block">
+                <form id="form" class="form" autocomplete="off">
+                  <p class="control">
+                    <input id="input" class="input" type="text" placeholder="4d6+3">
+                  </p>
+                </form>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
-      <section class="section">
-        <div id="dice" class="field">
-          <div class="columns">
-            <div class="column is-5">
-              <div class="level">
-                <div class="level-item">
-                  <div class="has-text-centered is-relative">
-                    <a data-value="20" class="button die is-sided-20 is-size-3" data-shortcut="a">20</a>
-                    <span class="badge has-text-dark has-background-grey">0</span>
-                    <p class="subtitle has-text-grey-dark is-size-6">a</p>
-                  </div>
+      <div id="settings" class="field">
+        <div class="level">
+          <div class="level-item level-right">
+            <div class="has-text-centered is-relative">
+              <a id="mode" data-value="manual" class="button is-dark has-text-grey is-size-4" data-shortcut="p">
+                <span class="icon">
+                  <i class="fas fa-keyboard"></i>
+                </span>                      
+              </a>
+              <p class="subtitle has-text-grey is-size-7">p</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="dice" class="field">
+        <div class="columns">
+          <div class="column is-5">
+            <div class="level">
+              <div class="level-item">
+                <div class="has-text-centered is-relative">
+                  <a data-value="20" class="button die is-sided-20 is-size-3" data-shortcut="a">20</a>
+                  <span class="badge has-text-dark has-background-grey">0</span>
+                  <p class="subtitle has-text-grey is-size-6">a</p>
                 </div>
-                <div class="level-item">
-                  <div class="has-text-centered is-relative">
-                    <a data-value="12" class="button die is-sided-12 is-size-3" data-shortcut="s">12</a>
-                    <span class="badge has-text-dark has-background-grey">0</span>
-                    <p class="subtitle has-text-grey-dark is-size-6">s</p>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="has-text-centered is-relative">
+                  <a data-value="12" class="button die is-sided-12 is-size-3" data-shortcut="s">12</a>
+                  <span class="badge has-text-dark has-background-grey">0</span>
+                  <p class="subtitle has-text-grey is-size-6">s</p>
                 </div>
-                <div class="level-item">
-                  <div class="has-text-centered is-relative">
-                    <a data-value="10" class="button die is-sided-10 is-size-3" data-shortcut="d">10</a>
-                    <span class="badge has-text-dark has-background-grey">0</span>
-                    <p class="subtitle has-text-grey-dark is-size-6">d</p>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="has-text-centered is-relative">
+                  <a data-value="10" class="button die is-sided-10 is-size-3" data-shortcut="d">10</a>
+                  <span class="badge has-text-dark has-background-grey">0</span>
+                  <p class="subtitle has-text-grey is-size-6">d</p>
                 </div>
-                <div class="level-item">
-                  <div class="has-text-centered">
-                    <a data-value="+" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="f">
-                      <span class="icon">
-                        <i class="fas fa-plus"></i>
-                      </span>                      
-                    </a>
-                    <p class="subtitle has-text-grey-dark is-size-6">f</p>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="has-text-centered">
+                  <a data-value="+" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="f">
+                    <span class="icon">
+                      <i class="fas fa-plus"></i>
+                    </span>                      
+                  </a>
+                  <p class="subtitle has-text-grey is-size-6">f</p>
                 </div>
               </div>
             </div>
-            <div class="column is-2 has-text-centered">
-              <div class="has-text-centered">
-                <a data-value="reset" class="button is-dark has-text-grey is-size-3" data-shortcut="r">
-                  <span class="icon icon-undo">
-                    <i class="fas fa-undo"></i>
-                  </span>
-                  <span class="icon icon-trash is-hidden">
-                    <i class="fas fa-trash"></i>
-                  </span>
-                </a>
-                <p class="subtitle has-text-grey-dark is-size-6">r</p>
-              </div>
+          </div>
+          <div class="column is-2 has-text-centered">
+            <div class="has-text-centered">
+              <a data-value="reset" class="button is-dark has-text-grey is-size-3" data-shortcut="r">
+                <span class="icon icon-undo">
+                  <i class="fas fa-undo"></i>
+                </span>
+                <span class="icon icon-trash is-hidden">
+                  <i class="fas fa-trash"></i>
+                </span>
+              </a>
+              <p class="subtitle has-text-grey is-size-6">r</p>
             </div>
-            <div class="column is-5 has-text-right">
-              <div class="level">
-                <div class="level-item">
-                  <div class="has-text-centered">
-                    <a data-value="-" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="j">
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>                                            
-                    </a>
-                    <p class="subtitle has-text-grey-dark is-size-6">j</p>
-                  </div>
+          </div>
+          <div class="column is-5 has-text-right">
+            <div class="level">
+              <div class="level-item">
+                <div class="has-text-centered">
+                  <a data-value="-" class="button is-dark is-size-3 has-text-grey-light" data-shortcut="j">
+                    <span class="icon">
+                      <i class="fas fa-minus"></i>
+                    </span>                                            
+                  </a>
+                  <p class="subtitle has-text-grey is-size-6">j</p>
                 </div>
-                <div class="level-item">
-                  <div class="has-text-centered is-relative">
-                    <a data-value="8" class="button die is-sided-8 is-size-3" data-shortcut="k">8</a>
-                    <span class="badge has-text-dark has-background-grey">0</span>
-                    <p class="subtitle has-text-grey-dark is-size-6">k</p>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="has-text-centered is-relative">
+                  <a data-value="8" class="button die is-sided-8 is-size-3" data-shortcut="k">8</a>
+                  <span class="badge has-text-dark has-background-grey">0</span>
+                  <p class="subtitle has-text-grey is-size-6">k</p>
                 </div>
-                <div class="level-item">
-                  <div class="has-text-centered is-relative">
-                    <a data-value="6" class="button die is-sided-6 is-size-3" data-shortcut="l">6</a>
-                    <span class="badge has-text-dark has-background-grey">0</span>
-                    <p class="subtitle has-text-grey-dark is-size-6">l</p>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="has-text-centered is-relative">
+                  <a data-value="6" class="button die is-sided-6 is-size-3" data-shortcut="l">6</a>
+                  <span class="badge has-text-dark has-background-grey">0</span>
+                  <p class="subtitle has-text-grey is-size-6">l</p>
                 </div>
-                <div class="level-item">
-                  <div class="has-text-centered is-relative">
-                    <a data-value="4" class="button die is-sided-4 is-size-3" data-shortcut=";">4</a>
-                    <span class="badge has-text-dark has-background-grey">0</span>
-                    <p class="subtitle has-text-grey-dark is-size-6">;</p>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="has-text-centered is-relative">
+                  <a data-value="4" class="button die is-sided-4 is-size-3" data-shortcut=";">4</a>
+                  <span class="badge has-text-dark has-background-grey">0</span>
+                  <p class="subtitle has-text-grey is-size-6">;</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="section">
-        <h1 id="result" class="title has-text-primary is-size-0 has-text-centered"></h1>
-        <div id="results">
-        </div>
-        <div id="log">
-        </div>
-      </section>
+      </div>
+      <h1 id="result" class="title has-text-primary is-size-0 has-text-centered"></h1>
+      <div id="results">
+      </div>
+      <div id="log">
+      </div>
     </div>
     <style>
       .is-size-0 {
@@ -201,7 +213,7 @@
       a[data-value='reset'].button .icon:last-child:not(:first-child) {
         margin: 0;
       }
-      #text-input {
+      #manual {
         display: none;
       }
       #form {
@@ -261,20 +273,57 @@
           }
         });
 
-        $('body').keypress(function(event) {
-          var special = '!"#$%&\'()*+,./:;<=>?@[\]^`{|}~'
-          var key = event.key
-          if (special.indexOf(key) != -1) {
-            key = '\\' + key;
+        var setMode = function(mode) {
+          $('body').off('keypress');
+          if (mode == 'keypress') {
+            /* quick keys mode */
+            $('body').keypress(function(event) {
+              var special = '!"#$%&\'()*+,./:;<=>?@[\]^`{|}~'
+              var key = event.key;
+              if (special.indexOf(key) != -1) {
+                key = '\\' + key;
+              }
+              var button = $('a[data-shortcut=' + key + ']');
+              if (button.length == 1) {
+                clickButton(button);
+              }
+              return false;
+            });
+          } else {
+            /* text input/equation mode */
+            $('body').keypress(function(event) {
+              var key = event.key;
+              var modeButton = $('a#mode');
+              if (key == modeButton.data('shortcut')) {
+                var button = $('a[data-shortcut=' + key + ']');
+                clickButton(button);
+                return false;
+              }
+            });
           }
-          var button = $('#dice a[data-shortcut=' + key + ']');
-          if (button.length == 1) {
-            button.addClass('active').click();
-            setTimeout(function() { 
-              button.removeClass('active'); 
-            }, 80);
+        }
+
+        var clickButton = function(button) {
+          button.addClass('active').click();
+          setTimeout(function() { 
+            button.removeClass('active'); 
+          }, 80);
+        }
+
+        $('#settings a').click(function() {
+          var button = $(this);
+          if (button.attr('id') == 'mode') {
+            var mode = $(button).data('value');
+            if (mode == 'manual') {
+              $('#manual').stop().slideDown().find('#input').focus();
+              setMode('manual');
+              $(button).data('value', 'keypress');
+            } else {
+              $('#manual').stop().slideUp();
+              setMode('keypress');
+              $(button).data('value', 'manual');
+            }
           }
-          return true;
         });
 
         /* text-based input form */
@@ -286,6 +335,9 @@
           input.val('');
           return false;
         });
+
+        setMode('keypress');
+
       });
     </script>
   </body>
