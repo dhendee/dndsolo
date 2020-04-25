@@ -52,7 +52,7 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
     <link rel="alternate" href="http://blog.url.com/posts/solo-dnd-guide/"/>
     <id>http://blog.url.com/posts/solo-dnd-guide/</id>
     <published>2020-04-12T17:00:00-07:00</published>
-    <updated>2020-04-22T21:54:20-07:00</updated>
+    <updated>2020-04-24T22:13:10-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -71,7 +71,7 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
   &lt;figcaption&gt;My typical setup while playing on a laptop with open tabs for: 1. my character, 2. the adventure, 3. the current map, and 4. the Encounter Builder/Combat Tracker&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h2 class="title is-2"&gt;Adventure Selection&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;Adventure Selection&lt;/h2&gt;
 
 &lt;p&gt;I first tried playing solo about a year ago — using the DMG random campaign tables and &lt;a href="https://homebrewery.naturalcrit.com/share/rkmo0t9k4Q" target="_blank"&gt;MUNE&lt;/a&gt; — and, while it was interesting, it didn’t stick past the first world-building session. Maybe it was because I’m not that great at world building, but it felt more like being a DM and less like being a player than I was looking for, so I didn’t stick with it.&lt;/p&gt;
 
@@ -83,7 +83,7 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
 
 &lt;p&gt;While I own a few hardcovers, I highly recommend using D&amp;amp;D Beyond for solo play. Having all of the resources available on all my devices, and having everything linked together, meant that I could play for as little as 15 minutes and squeeze in a little D&amp;amp;D. So, I had one tab open with the adventure itself.&lt;/p&gt;
 
-&lt;h2 class="title is-2"&gt;Character Creation&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;Character Creation&lt;/h2&gt;
 
 &lt;p&gt;Another place D&amp;amp;D Beyond helps a ton is character management. I built out a Half-Elf Hexblade (Pact of the Blade) Warlock with the &lt;a href="https://www.dndbeyond.com/characters/builder" target="_blank"&gt;Character Builder&lt;/a&gt;, and that was another open tab. You can find recommendations for solo PC builds online and I went with a Warlock since I thought it would be a fun match with the adventure’s theme. I did min-max a bit so it wasn’t too underpowered (and who’s really going to complain).&lt;/p&gt;
 
@@ -95,7 +95,7 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
 
 &lt;p&gt;And my next playthrough I think I’ll use one of the Sidekicks from the &lt;em&gt;Essentials Kit&lt;/em&gt;. Their 1–10 stat blocks are in D&amp;amp;D Beyond under their archetypes: Warrior, Expert, and Spellcaster, so they should show up in the Encounter Builder, which we’ll dive into more when we talk about running Combat solo.&lt;/p&gt;
 
-&lt;h2 class="title is-2"&gt;Exploration&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;Exploration&lt;/h2&gt;
 
 &lt;p&gt;As I mentioned, I had read through the adventures before playing them, which I think works great. Where it falls down a bit is with player knowledge, and things like secret doors and other exploration components get a bit tricker.&lt;/p&gt;
 
@@ -103,20 +103,20 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
 
 &lt;p&gt;In &lt;em&gt;To Hell and Back Again&lt;/em&gt;, the choose your own adventure style was a big improvement over the more typical presentation in &lt;em&gt;Descent Into Avernus&lt;/em&gt;, but overall the Exploration and Social Interaction pillars do suffer a bit more than Combat in solo play.&lt;/p&gt;
 
-&lt;h2 class="title is-2"&gt;Combat&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;Combat&lt;/h2&gt;
 &lt;p&gt;For me, Combat was super fun solo, with every turn having lots of decisions for both the PC and the monsters. The three big things that made it great were using theater of the mind, figuring out how to run the monsters with my DM-hat, and discovering some tooling that helped run the encounters themselves.&lt;/p&gt;
 
-&lt;h3 class="title is-3"&gt;Theater of the Mind&lt;/h3&gt;
+&lt;h3 class="title is-size-3"&gt;Theater of the Mind&lt;/h3&gt;
 &lt;p&gt;When I play or DM with a group, I like a mix of Theater of the Mind and mini-based tactical combat. For whatever reason, I wasn’t really interested in the tactical side of play for my solo sessions. I’m sure there are lots of folks enjoying solo D&amp;amp;D with VTTs like Roll20 and Fantasy Grounds, but I found pure Theater of the Mind combat to feel really light, fast, and efficient.&lt;/p&gt;
 
 &lt;p&gt;Mike Shea (AKA Sly Flourish) has an excellent &lt;em&gt;Guide to Narrative Combat&lt;/em&gt; &lt;a href="https://slyflourish.com/guide_to_narrative_combat.html" target="_blank"&gt;on his blog&lt;/a&gt; that is a great resource. I especially relied on the Areas of Effect guidelines when dealing with multiple enemies.&lt;/p&gt;
 
-&lt;h3 class="title is-3"&gt;Monster Tactics&lt;/h3&gt;
+&lt;h3 class="title is-size-3"&gt;Monster Tactics&lt;/h3&gt;
 &lt;p&gt;For monster tactics, I can’t recommend enough Keith Ammann’s blog and book &lt;a href="http://themonstersknow.com/" target="_blank"&gt;&lt;em&gt;The Monsters Know What They’re Doing&lt;/em&gt;&lt;/a&gt;. These write ups give you basically an AI for the monsters, which when paired with whatever environments and strategies are presented in the adventure, make for really rich solo play. It especially helps figure out who the monster is going to attack and how, and how they would behave when they were losing a battle.&lt;/p&gt;
 
 &lt;p&gt;There’s also &lt;a href="https://dontsplitthepodcastnetwork.com/dms-deep-dive/026" target="_blank"&gt;a great episode&lt;/a&gt; of &lt;em&gt;DM’s Deep Dive&lt;/em&gt; (again from Mike Shea) where Keith breaks down his thought process so you can apply the techniques yourself to monsters that might not be in the guide.&lt;/p&gt;
 
-&lt;h3 class="title is-3"&gt;Combat Management Tools&lt;/h3&gt;
+&lt;h3 class="title is-size-3"&gt;Combat Management Tools&lt;/h3&gt;
 &lt;p&gt;When I started out, I used a separate notes app to track initiative along with enemy Armor Class and Hit Points. I also had a tab open for each monster in the encounter. That actually worked fine and it wasn’t until my character was 17th level that I discovered a way better set of tools.&lt;/p&gt;
 
 &lt;p&gt;I highly recommend using the Encounter Builder and stumbled on the Combat Tracker (you’ll need the $6/month Master Tier subscription to try the alpha). These two tools were a total gamechanger.&lt;/p&gt;
@@ -125,7 +125,7 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
 
 &lt;p&gt;The Encounter Builder and Combat Tracker combat doesn’t do everything, though. I still used the Character Builder sheet to track my PCs Hit Points and the like, and your sidekicks need to get in there either as full character sheets or stat blocks (the approach I recommend). One downside of having them as stat blocks instead of characters, though, is that they will show up as enemies in the encounter’s DC. It’s a bit of a bummer to not know how balanced you’ve made an encounter when sidekicks are involved, but it didn’t become a major problem. Maybe the Encounter Builder will support adding monsters/sidekicks to the party's team when calculating DCs down the road.&lt;/p&gt;
 
-&lt;h3 class="title is-3"&gt;Dice Rolling&lt;/h3&gt;
+&lt;h3 class="title is-size-3"&gt;Dice Rolling&lt;/h3&gt;
 &lt;p&gt;I tried a few different options for rolling dice, including physical dice. I think we’ll see a nicer official dice roller from Wizards at some point, but for now the best option I found was &lt;a href="https://apps.apple.com/us/app/dungeon-dice-rpg-dice-roller/id1405198378" target="_blank"&gt;an iPhone app&lt;/a&gt; called &lt;em&gt;Dungeon Dice&lt;/em&gt;. It’s elegant and simple, and when I was playing with my laptop, having my phone as the dice ‘tray’ was a good setup. I didn’t find anything quite as nice for desktop or Android, but there are plenty of other dice rollers out there.&lt;/p&gt;
 
 &lt;figure&gt;
@@ -133,7 +133,7 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
   &lt;figcaption&gt;The Dungeon Dice iOS app&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h2 class="title is-2"&gt;Social Interaction&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;Social Interaction&lt;/h2&gt;
 &lt;p&gt;Like Exploration, the Social Interaction pillar suffers a bit in solo play. I found a couple of things that made it more interesting.&lt;/p&gt;
 
 &lt;p&gt;First, if there was any meaty social interaction that eventually boiled down to 1 or 2 Skill Checks, I would spend just a few minutes thinking about the interaction, roll the dice, and then sleep on it. I didn’t find it easy to play out conversations in my head in real time, but giving myself an hour or two (or overnight) to think about how situations might have played out, worked well for me.&lt;/p&gt;
@@ -142,14 +142,14 @@ If you’d like to give it a shot, you might enjoy checking out my &lt;a href="/
 
 &lt;p&gt;Thinking of these moments as collaborative storytelling really made them more interesting, and giving them more time to breathe helped me a lot.&lt;/p&gt;
 
-&lt;h2 class="title is-2"&gt;What’s Next&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;What’s Next&lt;/h2&gt;
 &lt;p&gt;After giving myself a week off to decompress from the &lt;em&gt;To Hell and Back Again&lt;/em&gt;/&lt;em&gt;Descent Into Avernus campaign&lt;/em&gt;, I will definitely be playing another solo adventure soon (probably Curse of Strahd with a Paladin).&lt;/p&gt;
 
 &lt;p&gt;Aside from trying out Sidekicks, there’s at least one other thing I’d like to try out: keeping a campaign log. Without a group to talk to during and between sessions, and not wanting to annoy my family, a session journal would have been a good idea.&lt;/p&gt;
 
 &lt;p&gt;Even just a few private notes here and there would have been a nice memento, and I think journaling about sessions might improve the Social Interaction pillar a bit as well.&lt;/p&gt;
 
-&lt;h2 class="title is-2"&gt;Further Reading&lt;/h2&gt;
+&lt;h2 class="title is-size-2"&gt;Further Reading&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;What inspired this site: &lt;a href="https://dndduet.com/" target="_blank"&gt;&lt;em&gt;DnD Duet&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
