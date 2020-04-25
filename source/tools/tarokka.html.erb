@@ -1,0 +1,564 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+<h1 class="title is-size-1">Tarokka Reading Generator</h1>
+<p>This tool hides the Tome of Strahd, Holy Symbol, Sunsword, Enemy of Strahd, and Location of Strahd as per the “Fortunes of Ravenloft” instructions in <em>Curse of Strahd</em>. You can then check locations as you visit them to see which — if any — of the items is present.</p>
+
+<p>Your progress will be saved in a cookie between visits.</p>
+
+<section class="section">
+  <div class="field">
+    <div class="control">
+      <button id="randomize" class="button is-primary">
+        <span class="icon">
+          <i class="fas fa-dice"></i>
+        </span>
+        <span>Randomize location of items/NPCs</span>
+      </button>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <button id="reset" class="button is-hidden">
+        <span class="icon">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+        <span>Reset all</span>        
+      </button>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <p id="directions" class="is-size-6 is-hidden">Tap each row when visiting the location to reveal if an item is present:</p>
+  <table class="table is-hoverable" id="tarokka">
+    <thead>
+      <tr>
+        <th>Encounter</th>
+        <th>Card</th>
+        <th>Item</th>
+      </tr>
+    </thead>
+    <tbody id="locations">
+      <tr data-canhas="enemy-of-strahd">
+        <td></td>
+        <td>Darklord</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td></td>
+        <td>Mists</td>
+        <td>?</td>
+      </tr>      
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 2</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>F</td>
+        <td>7 of Coins — Thief</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>G</td>
+        <td>2 of Stars — Diviner</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>L</td>
+        <td>A. Tempter</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>M</td>
+        <td>A. Broken One</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 3</th>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>E1</td>
+        <td>A. Innocent</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>E2</td>
+        <td>Executioner</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>E4</td>
+        <td>B. Innocent</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>E5</td>
+        <td>B. Broken One</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 4</th>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K6</td>
+        <td>Executioner</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K15</td>
+        <td>Master of Glyphs — Priest</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K15</td>
+        <td>Artifact</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K25</td>
+        <td>8 of Swords — Dictator</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K25</td>
+        <td>Beast</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K37</td>
+        <td>8 of Stars — Necromancer</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K37</td>
+        <td>Seer</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K41</td>
+        <td>9 of Coins — Miser</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K41</td>
+        <td>Tempter</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K59</td>
+        <td>A. Marionette</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K60</td>
+        <td>1 of Stars — Transmuter</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K60</td>
+        <td>Marionette</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K63</td>
+        <td>4 of Coins — Merchant</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K67</td>
+        <td>6 of Glyphs — Anarchist</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K67</td>
+        <td>Donjon</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K84, crypt 5</td>
+        <td>5 of Coins — Guild Member</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K84, crypt 7</td>
+        <td>1 of Coins — Swashbuckler</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K84, crypt 31</td>
+        <td>4 of Swords — Mercenary</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>K84, crypt 33</td>
+        <td>B. Ghost</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K84, crypt 37</td>
+        <td>6 of Stars — Evoker</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K84, crypt 38</td>
+        <td>6 of Swords — Berserker</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K85</td>
+        <td>2 of Swords — Paladin</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K85</td>
+        <td>Broken One</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K85</td>
+        <td>Innocent</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K86</td>
+        <td>Master of Swords — Warrior</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K86</td>
+        <td>Darklord</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K86</td>
+        <td>Horseman</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>K88</td>
+        <td>4 of Glyphs — Shepherd</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K88</td>
+        <td>Ghost</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="strahd">
+        <td>K88</td>
+        <td>Raven</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 5</th>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>N2</td>
+        <td>Artifact</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>N2q</td>
+        <td>Master of Coins — Rogue</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>N3s</td>
+        <td>9 of Swords — Torturer</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>N3t</td>
+        <td>A. Donjon</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>N4n</td>
+        <td>B. Donjon</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>N4o</td>
+        <td>9 of Glyphs — Traitor</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>N4o</td>
+        <td>A. Horseman</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>N5</td>
+        <td>7 of Stars — Illusionist</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>N9a</td>
+        <td>6 of Coins — Beggar</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>N9a</td>
+        <td>Seer</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>N9c</td>
+        <td>B. Horseman</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>N9i</td>
+        <td>8 of Coins — Tax Collector</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 6</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>O4</td>
+        <td>7 of Glyphs — Charlatan</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 7</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>Q36</td>
+        <td>1 of Swords — Avenger</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>Q37</td>
+        <td>A. Ghost</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>Q53</td>
+        <td>4 of Stars — Abjurer</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 8</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>S4</td>
+        <td>3 of Glyphs — Healer</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>S9</td>
+        <td>2 of Glyphs — Missionary</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>S13</td>
+        <td>1 of Glyphs — Monk</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>S13</td>
+        <td>B. Tempter</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>S17</td>
+        <td>B. Marionette</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>S19</td>
+        <td>Mists</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>S23</td>
+        <td>2 of Coins — Philanthropist</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 9</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>T6</td>
+        <td>3 of Swords — Soldier</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 10</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>U3</td>
+        <td>9 of Stars — Conjurer</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>U5</td>
+        <td>3 of Stars — Enchanter</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 11</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>V7</td>
+        <td>Master of Stars — Wizard</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 12</th>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td></td>
+        <td>Raven</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>W10</td>
+        <td>3 of Coins — Trader</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 13</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>X5a</td>
+        <td>7 of Swords — Hooded One</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>X20</td>
+        <td>5 of Stars — Elementalist</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>X40</td>
+        <td>8 of Glyphs — Bishop</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 14</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>Y4</td>
+        <td>5 of Glyphs — Druid</td>
+        <td>?</td>
+      </tr>
+      <tr class="chapter-row">
+        <th colspan="3" class="has-text-centered">Chapter 15</th>
+      </tr>
+      <tr data-canhas="tome, holy-symbol, sunsword">
+        <td>Z7</td>
+        <td>5 of Swords — Myrmidon</td>
+        <td>?</td>
+      </tr>
+      <tr data-canhas="enemy-of-strahd">
+        <td>Z7</td>
+        <td>Beast</td>
+        <td>?</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<script>
+  var items = ['tome', 'holy-symbol', 'sunsword', 'enemy-of-strahd', 'strahd'];
+  var seed = '';
+
+  $('#reset').click(function() {
+    if (window.confirm('Are you sure? All locations will be reset and any progress will be lost.')) { 
+      Cookies.remove('seed');
+      console.log(Cookies.get('seed'));
+      location.reload();
+    }
+  });
+
+  if (Cookies.get('seed')) {
+    seed = Cookies.get('seed');
+    $('#locations tr:not(.chapter-row)').each(function(i) {
+      var row = $(this);
+      var revealChar = seed.charAt(i + seed.indexOf('-') + 1);
+      if (revealChar != '+') {
+        row.find('td').last().addClass('has-background-grey-darker');
+      }
+      var itemChar = seed.charAt(i);
+      if (itemChar != 'x') {
+        var item = items[parseInt(itemChar)];
+        row.addClass('has-item').find('td').last().html(item);
+      } else {
+        row.find('td').last().html('<em>No item</em>');
+      }
+    });
+    $('#randomize, #reset, #directions').toggleClass('is-hidden');
+  }
+
+  $('#randomize').click(function() {
+    Cookies.remove('seed');
+    seed = '';
+
+    var button = $(this);
+
+    button.addClass('is-loading');
+
+    setTimeout(function() {
+      $('#locations tr:not(.chapter-row)').each(function() {
+        $(this).removeClass('has-item').find('td').last().addClass('has-background-grey-darker').html('<em>No item</em>');
+      });
+
+      var rows = $('#locations tr:not(.chapter-row)');
+      for (i in items) {
+        var item = items[i]; 
+        placeItem(item);
+      }
+
+      function placeItem(item) {
+        var i = Math.floor(Math.random() * Math.floor(rows.length));
+        var row = rows.eq(i);
+        if (!row.hasClass('has-item') && row.data('canhas').indexOf(item) != -1) {
+          row.addClass('has-item');
+          row.find('td').last().html(item);
+        } else {
+          placeItem(item);
+        }
+      }
+
+      $('#locations tr:not(.chapter-row)').each(function() {
+        var row = $(this);
+        if (row.hasClass('has-item')) {
+          var item = row.find('td').last().html();
+          var itemIndex = items.indexOf(item);
+          seed += itemIndex;
+        } else {
+          seed += 'x';
+        }
+      });
+
+      seed += '-' + '?'.repeat($('#locations tr:not(.chapter-row)').length);
+
+      Cookies.set('seed', seed);
+
+      $('#randomize, #reset, #directions').toggleClass('is-hidden');
+
+      button.removeClass('is-loading');
+    }, 500);
+
+  });
+
+  $('#locations tr:not(.chapter-row)').click(function() {
+    var row = $(this);
+    row.find('td').last().removeClass('has-background-grey-darker');
+    var i = row.index() + seed.indexOf('-') + 1;
+    seed = seed.substr(0, i) + '+' + seed.substr(i + 1);
+    Cookies.set('seed', seed);
+  });
+</script>
+
+<style>
+  #locations tr {
+    cursor: pointer;
+  }
+
+  #locations tr.chapter-row {
+    cursor: default;
+  }
+</style>
