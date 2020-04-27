@@ -5,10 +5,30 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2020-04-21T17:00:00-07:00</updated>
+  <updated>2020-04-25T17:00:00-07:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Adjusting Death House for Solo Play</title>
+    <link rel="alternate" href="http://blog.url.com/posts/death-house-solo/"/>
+    <id>http://blog.url.com/posts/death-house-solo/</id>
+    <published>2020-04-25T17:00:00-07:00</published>
+    <updated>2020-04-26T13:31:15-07:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;After playing through Death House from Curse of Stahd solo, I have some recommendations for tweaks I’d make to tune it better for individual play.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id="bring-a-sidekick-and-an-animal-companion"&gt;Bring a sidekick and an animal companion&lt;/h3&gt;
+
+&lt;h3 id="have-or-have-rose-or-thorn-join-the-party"&gt;Have or have Rose or Thorn join the party&lt;/h3&gt;
+
+&lt;h3 id="have-rose-or-thorn-join-the-party"&gt;Have Rose or Thorn join the party&lt;/h3&gt;
+</content>
+  </entry>
   <entry>
     <title>Why Play Solo D&amp;D?</title>
     <link rel="alternate" href="http://blog.url.com/posts/why-play-solo-dnd/"/>
