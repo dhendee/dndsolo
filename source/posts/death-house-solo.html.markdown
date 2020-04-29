@@ -8,6 +8,11 @@ Last weekend I played solo through the adventure _Death House_ from Curse of Sta
 
 READMORE
 
+<figure>
+  <img class="box" src="/images/castle.jpg" alt="A spooky castle">
+  <figcaption>Try adding some spooky music.</figcaption>
+</figure>
+
 ###Listen to a Soundtrack
 My playthrough lasted a bit under three hours, and [a nice, macabre soundtrack](https://www.youtube.com/watch?v=GOTyzCntzJo) was a perfect fit. When playing solo, immersing yourself in the sights, smells, and sounds of the adventure is something you can lean into. 
 
@@ -30,6 +35,11 @@ In my first playthrough of _Death House_ I decided to add Rose as a party member
 The main thing to tweak for solo play in this adventure is the number of Shadows in Area 31. As written, there are five Shadows and I found it way too hard, narrowly surviving during my first playthrough and a TPK during my second. With Rose or Thorn as party members you are basically toast, since the Shadows are immune to necrotic damage. Even with a Sidekick and Animal Companion, the Strength drain — which might even be a dump stat — along with resistance to non-magical damage can make for a short and painful encounter.
 
 I recommend reducing the number of Shadows to be equal to the number of party members, so in the suggested party of a PC, Sidekick, and Animal Companion: three.
+
+<figure>
+  <img class="box" src="/images/escape.jpg" alt="Escaping on a horse">
+  <figcaption>The ending skill challenge can be a wild ride.</figcaption>
+</figure>
 
 ###Have Multiple Options for the Ritual Chamber
 The Shambling Mound encounter in Area 38 is very iffy going toe-to-toe using a party of three. You aren’t supposed to necessarily _have_ to fight it. But, to avoid combat you need to make a living sacrifice, and who wants to sacrifice their Sidekick or Animal Companion two levels in? Adding another ’living creature’ to sacrifice is a good option. You might consider something like the Gertruda’s Dog encounter [as described on Reddit](https://www.reddit.com/r/CurseofStrahd/comments/8sfpkn/fleshing_out_curse_of_strahd_part_2_entering/). 
