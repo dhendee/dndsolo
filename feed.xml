@@ -14,13 +14,18 @@
     <link rel="alternate" href="http://blog.url.com/posts/death-house-solo/"/>
     <id>http://blog.url.com/posts/death-house-solo/</id>
     <published>2020-04-25T17:00:00-07:00</published>
-    <updated>2020-04-29T11:44:26-07:00</updated>
+    <updated>2020-04-29T14:18:09-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;p&gt;Last weekend I played solo through the adventure &lt;em&gt;Death House&lt;/em&gt; from Curse of Stahd. I‘d like to share some of the tweaks that made it more enjoyable and balanced for solo play.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img class="box" src="/images/castle.jpg" alt="A spooky castle" /&gt;
+  &lt;figcaption&gt;Try adding some spooky music.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;h3 id="listen-to-a-soundtrack"&gt;Listen to a Soundtrack&lt;/h3&gt;
 &lt;p&gt;My playthrough lasted a bit under three hours, and &lt;a href="https://www.youtube.com/watch?v=GOTyzCntzJo"&gt;a nice, macabre soundtrack&lt;/a&gt; was a perfect fit. When playing solo, immersing yourself in the sights, smells, and sounds of the adventure is something you can lean into.&lt;/p&gt;
@@ -44,6 +49,11 @@
 &lt;p&gt;The main thing to tweak for solo play in this adventure is the number of Shadows in Area 31. As written, there are five Shadows and I found it way too hard, narrowly surviving during my first playthrough and a TPK during my second. With Rose or Thorn as party members you are basically toast, since the Shadows are immune to necrotic damage. Even with a Sidekick and Animal Companion, the Strength drain — which might even be a dump stat — along with resistance to non-magical damage can make for a short and painful encounter.&lt;/p&gt;
 
 &lt;p&gt;I recommend reducing the number of Shadows to be equal to the number of party members, so in the suggested party of a PC, Sidekick, and Animal Companion: three.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img class="box" src="/images/escape.jpg" alt="Escaping on a horse" /&gt;
+  &lt;figcaption&gt;The ending skill challenge can be a wild ride.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;h3 id="have-multiple-options-for-the-ritual-chamber"&gt;Have Multiple Options for the Ritual Chamber&lt;/h3&gt;
 &lt;p&gt;The Shambling Mound encounter in Area 38 is very iffy going toe-to-toe using a party of three. You aren’t supposed to necessarily &lt;em&gt;have&lt;/em&gt; to fight it. But, to avoid combat you need to make a living sacrifice, and who wants to sacrifice their Sidekick or Animal Companion two levels in? Adding another ’living creature’ to sacrifice is a good option. You might consider something like the Gertruda’s Dog encounter &lt;a href="https://www.reddit.com/r/CurseofStrahd/comments/8sfpkn/fleshing_out_curse_of_strahd_part_2_entering/"&gt;as described on Reddit&lt;/a&gt;.&lt;/p&gt;
