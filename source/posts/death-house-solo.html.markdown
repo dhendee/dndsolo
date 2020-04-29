@@ -8,13 +8,13 @@ Last weekend I played solo through the adventure _Death House_ from Curse of Sta
 
 READMORE
 
+###Listen to a Soundtrack
+My playthrough lasted a bit under three hours, and [a nice, macabre soundtrack](https://www.youtube.com/watch?v=GOTyzCntzJo) was a perfect fit. When playing solo, immersing yourself in the sights, smells, and sounds of the adventure is something you can lean into. I haven’t tried it yet, but trying something more interactive like [Syrinscape](https://syrinscape.com/) could be really interesting to experiment with.
+
 <figure>
   <img class="box" src="/images/castle.jpg" alt="A spooky castle">
   <figcaption>Try adding some spooky music.</figcaption>
 </figure>
-
-###Listen to a Soundtrack
-My playthrough lasted a bit under three hours, and [a nice, macabre soundtrack](https://www.youtube.com/watch?v=GOTyzCntzJo) was a perfect fit. When playing solo, immersing yourself in the sights, smells, and sounds of the adventure is something you can lean into. 
 
 ###Bring Some Backup
 If, like I did, you start Death House at level one, you’ll want some additional NPCs to round out your party. My favorite combo for solo play these days is a PC (you), a Sidekick, and an Animal Companion. Having a party of three spreads out the damage and balances the action econony to where it's close to a ’normal‘ feel for D&D. 
