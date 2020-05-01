@@ -43,6 +43,42 @@
       </div>
       <div id="settings" class="field">
         <div class="level">
+          <div class="level-item level-left is-clearfix">
+            <div class="has-text-centered is-relative is-pulled-left">
+              <a id="color" class="button is-dark has-text-grey is-size-4" data-shortcut="q">
+                <span class="icon">
+                  <i class="fas fa-palette"></i>
+                </span>                      
+              </a>
+              <p class="subtitle has-text-grey is-size-7">q</p>
+            </div>
+            <div id="colors" class="is-pulled-left is-clearfix">
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="white" class="button is-white is-small die is-sided-20" data-shortcut="1"> </a>
+                <p class="subtitle has-text-grey is-size-7">1</p>
+              </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="black" class="button is-black is-small die is-sided-20" data-shortcut="2"> </a>
+                <p class="subtitle has-text-grey is-size-7">2</p>
+              </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="primary" class="button is-primary is-small die is-sided-20" data-shortcut="3"> </a>
+                <p class="subtitle has-text-grey is-size-7">3</p>
+              </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="info" class="button is-info is-small die is-sided-20" data-shortcut="4"> </a>
+                <p class="subtitle has-text-grey is-size-7">4</p>
+              </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="warning" class="button is-warning is-small die is-sided-20" data-shortcut="5"> </a>
+                <p class="subtitle has-text-grey is-size-7">5</p>
+              </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="danger" class="button is-danger is-small die is-sided-20" data-shortcut="6"> </a>
+                <p class="subtitle has-text-grey is-size-7">6</p>
+              </div>
+            </div>
+          </div>
           <div class="level-item level-right">
             <div class="has-text-centered is-relative">
               <a id="mode" data-value="manual" class="button is-dark has-text-grey is-size-4" data-shortcut="p">
@@ -61,21 +97,21 @@
             <div class="level">
               <div class="level-item">
                 <div class="has-text-centered is-relative">
-                  <a data-value="20" class="button die is-sided-20 is-size-3" data-shortcut="a">20</a>
+                  <a data-value="20" class="button die is-sided-20 is-size-3 is-white" data-shortcut="a">20</a>
                   <span class="badge has-text-dark has-background-grey">0</span>
                   <p class="subtitle has-text-grey is-size-6">a</p>
                 </div>
               </div>
               <div class="level-item">
                 <div class="has-text-centered is-relative">
-                  <a data-value="12" class="button die is-sided-12 is-size-3" data-shortcut="s">12</a>
+                  <a data-value="12" class="button die is-sided-12 is-size-3 is-white" data-shortcut="s">12</a>
                   <span class="badge has-text-dark has-background-grey">0</span>
                   <p class="subtitle has-text-grey is-size-6">s</p>
                 </div>
               </div>
               <div class="level-item">
                 <div class="has-text-centered is-relative">
-                  <a data-value="10" class="button die is-sided-10 is-size-3" data-shortcut="d">10</a>
+                  <a data-value="10" class="button die is-sided-10 is-size-3 is-white" data-shortcut="d">10</a>
                   <span class="badge has-text-dark has-background-grey">0</span>
                   <p class="subtitle has-text-grey is-size-6">d</p>
                 </div>
@@ -119,21 +155,21 @@
               </div>
               <div class="level-item">
                 <div class="has-text-centered is-relative">
-                  <a data-value="8" class="button die is-sided-8 is-size-3" data-shortcut="k">8</a>
+                  <a data-value="8" class="button die is-sided-8 is-size-3 is-white" data-shortcut="k">8</a>
                   <span class="badge has-text-dark has-background-grey">0</span>
                   <p class="subtitle has-text-grey is-size-6">k</p>
                 </div>
               </div>
               <div class="level-item">
                 <div class="has-text-centered is-relative">
-                  <a data-value="6" class="button die is-sided-6 is-size-3" data-shortcut="l">6</a>
+                  <a data-value="6" class="button die is-sided-6 is-size-3 is-white" data-shortcut="l">6</a>
                   <span class="badge has-text-dark has-background-grey">0</span>
                   <p class="subtitle has-text-grey is-size-6">l</p>
                 </div>
               </div>
               <div class="level-item">
                 <div class="has-text-centered is-relative">
-                  <a data-value="4" class="button die is-sided-4 is-size-3" data-shortcut=";">4</a>
+                  <a data-value="4" class="button die is-sided-4 is-size-3 is-white" data-shortcut=";">4</a>
                   <span class="badge has-text-dark has-background-grey">0</span>
                   <p class="subtitle has-text-grey is-size-6">;</p>
                 </div>
@@ -142,7 +178,7 @@
           </div>
         </div>
       </div>
-      <h1 id="result" class="title has-text-primary is-size-0 has-text-centered"></h1>
+      <h1 id="result" class="title has-text-white is-size-0 has-text-centered"></h1>
       <div id="results">
       </div>
       <div id="log">
@@ -154,7 +190,6 @@
         font-weight: 800;
       }
       .die {
-        background-color: #00d1b2;
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;
         -webkit-mask-position: center;
@@ -213,7 +248,7 @@
       a[data-value='reset'].button .icon:last-child:not(:first-child) {
         margin: 0;
       }
-      #manual {
+      #manual, #colors {
         display: none;
       }
       #form {
@@ -222,6 +257,8 @@
     </style>
     <script>
       $(function () {
+        var color = 'white';
+
         $('#dice a').click(function() {
           var button = $(this);
           var current = parseInt($('#result').html() ? $('#result').html() : 0);
@@ -232,7 +269,7 @@
             if ($('#result').html() == '') {
               $('#log').html('');
             } else {
-              $('#log').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-primary has-text-weight-bold">' + $('#result').html() + '</h2>' + $('#results').html());
+              $('#log').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-white has-text-weight-bold">' + $('#result').html() + '</h2>' + $('#results').html());
               $('#result, #results').html('');
             }
             if ($('#log').html() != '') {
@@ -247,7 +284,7 @@
           } else {
             var value = button.data('value');
             result = Math.ceil(Math.random() * Math.floor(value)); 
-            units = '<span class="icon is-small die is-sided-' + value + '"></span> ';
+            units = '<span class="icon has-background-' + color + ' is-small die is-sided-' + value + '"></span> ';
             var badge = $('.is-sided-' + value).siblings('.badge');
             var badgeval = parseInt(badge.html());
             badge.html(badgeval + 1);
@@ -323,6 +360,20 @@
               setMode('keypress');
               $(button).data('value', 'manual');
             }
+          } else if (button.attr('id') == 'color') {
+            if ($('#colors:visible').length == 1) {
+              $('#colors').fadeOut('fast');
+            } else {
+              $('#colors').fadeIn('fast');
+            }
+            // $('#colors').stop().fadeToggle('fast');
+          } else if (button.attr('data-color')) {
+            var newColor = button.attr('data-color');
+            var colorSelector = '.is-white, .is-black, .is-primary, .is-info, .is-warning, .is-danger';
+            var colorClasses = 'is-white is-black is-primary is-info is-warning is-danger';
+            $('#dice').find(colorSelector).removeClass(colorClasses).addClass('is-' + newColor);
+            color = newColor;
+            $('#colors').fadeOut('fast');
           }
         });
 
@@ -331,7 +382,7 @@
           var input = $('#form #input');
           var string = input.val();
           var result = dice.roll(string);
-          $('#results').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-primary has-text-weight-bold">' + result + '</h2><h5 class="subtitle is-5 has-text-centered has-text-grey-light">' + dice.stringify(result) + '</h5>');
+          $('#results').prepend('<div class="columns"><div class="column is-2 is-offset-5"><hr class="has-background-grey-dark"></div></div><h2 class="subtitle is-2 has-text-centered has-text-white has-text-weight-bold">' + result + '</h2><h5 class="subtitle is-5 has-text-centered has-text-grey-light">' + dice.stringify(result) + '</h5>');
           input.val('');
           return false;
         });
