@@ -262,12 +262,12 @@
       #form {
         width: 100%;
       }
-      .button.is-magic {
+      .button.is-magic, .has-background-magic {
         background-color: #b558e8;
         border-color: transparent;
         color: #fff;
       }
-      .button.is-rainbow {
+      .button.is-rainbow, .has-background-rainbow {
         background: linear-gradient(-45deg, #b558e8, #f14668, #ffdd57, #00d1b2, #3298dc, #b558e8);
         background-size: 400% 400%;
         position: relative;
@@ -316,7 +316,7 @@
           } else {
             var value = button.data('value');
             result = Math.ceil(Math.random() * Math.floor(value)); 
-            units = '<span class="icon has-background-' + color + ' is-small die is-sided-' + value + '"></span> ';
+            units = '<span class="icon has-background-' + color + ' is-small die is-sided-' + value + '"> </span> ';
             var badge = $('.is-sided-' + value).siblings('.badge');
             var badgeval = parseInt(badge.html());
             badge.html(badgeval + 1);
