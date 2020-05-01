@@ -6,7 +6,7 @@
   <p>This tool magically distributes the treasures of Barovia: the Tome of Strahd, the Holy Symbol of Ravenkind, the Sunsword, the Enemy of Strahd, and Location of Strahd himself. It follows the rules per the “Fortunes of Ravenloft” in <em>Curse of Strahd</em> but doesn’t reveal the locations to you. As you complete encounters, you can reveal whether or not the location contains one of the items you seek to defeat Strahd.</p>
 
   <p>Your progress will be saved in a cookie between visits.</p>
-  <div class="field">
+  <div id="no-seed" class="field">
     <div class="control">
       <button id="randomize" class="button is-primary">
         <span class="icon">
@@ -16,17 +16,44 @@
       </button>
     </div>
   </div>
-  <div class="field">
-    <div class="control">
-      <button id="reset" class="button is-hidden">
-        <span class="icon">
-          <i class="fas fa-trash-alt"></i>
-        </span>
-        <span>Reset all</span>        
-      </button>
+  <div id="has-seed" class="level is-hidden">
+    <div class="level-left">
+      <div class="field">
+        <div class="control">
+          <button id="reset" class="button">
+            <span class="icon">
+              <i class="fas fa-trash-alt"></i>
+            </span>
+            <span>Reset all</span>        
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="field has-addons">
+        <div class="control">
+          <input id="seed" class="input has-text-grey-lighter has-background-light" type="text" placeholder="Seed">
+        </div>
+        <div class="control">
+          <a id="copy" class="button">
+            <span class="icon">
+              <i class="far fa-copy"></i>
+            </span>
+            <span>Copy State</span>
+          </a>
+        </div>
+        <div class="control">
+          <a id="set" class="button">
+            <span class="icon">
+              <i class="fas fa-undo"></i>
+            </span>
+            <span>Set State</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  <p id="directions" class="is-size-6 is-hidden">Tap each row when visiting the location to reveal if an item is present. The first two cards are not tied to a location, and can be revealed immediately.</p>
+  <p id="directions" class="is-size-6 is-hidden">Tap each row when visiting the location to reveal if an item is present. The first two cards are not tied to a location, and can be revealed immediately. You can copy and paste the current state above, in case you would like to back up your progress or move to a different device.</p>
   <table class="table" id="tarokka">
     <thead>
       <tr>
@@ -444,11 +471,11 @@
 <script>
   var items = ['tome', 'holy-symbol', 'sunsword', 'enemy-of-strahd', 'strahd'];
   var labels = [
-    '<span class="icon"><i class="fas fa-book"></i></span><span class="has-text-weight-bold">Tome of Strahd</span>', 
-    '<span class="icon"><i class="fas fa-crow"></i></span><span class="has-text-weight-bold">Holy Symbol of Ravenkind</span>', 
-    '<span class="icon"><i class="fas fa-sun"></i></span><span class="has-text-weight-bold">Sunsword</span>', 
-    '<span class="icon"><i class="fas fa-user-shield"></i></span><span class="has-text-weight-bold">Strahd‘s Enemy</span>', 
-    '<span class="icon"><i class="fas fa-skull"></i></span><span class="has-text-weight-bold">Strahd</span>'
+    '<span class="icon"><i class="fas fa-book"></i></span><span data-item="tome" class="has-text-weight-bold">Tome of Strahd</span>', 
+    '<span class="icon"><i class="fas fa-crow"></i></span><span data-item="holy-symbol" class="has-text-weight-bold">Holy Symbol of Ravenkind</span>', 
+    '<span class="icon"><i class="fas fa-sun"></i></span><span data-item="sunsword" class="has-text-weight-bold">Sunsword</span>', 
+    '<span class="icon"><i class="fas fa-user-shield"></i></span><span data-item="enemy-of-strahd" class="has-text-weight-bold">Strahd‘s Enemy</span>', 
+    '<span class="icon"><i class="fas fa-skull"></i></span><span data-item="strahd" class="has-text-weight-bold">Strahd</span>'
   ];
   var seed = '';
 
@@ -459,8 +486,28 @@
     }
   });
 
+  $('#copy').click(function() {
+    var input = $('#seed');
+    input.focus();
+    input.select();
+    try {
+      var successful = document.execCommand('copy');
+      console.log(successful);
+    } catch (err) {
+      console.log('Oops, unable to copy seed.');
+    }
+  });
+
+  $('#set').click(function() {
+    if (window.confirm('Are you sure? All locations will be set to your pasted seed.')) { 
+      Cookies.set('seed', $('#seed').val());
+      location.reload();
+    }    
+  });
+
   if (Cookies.get('seed')) {
     seed = Cookies.get('seed');
+    $('#seed').val(seed);
     $('#locations tr:not(.chapter-row)').each(function(i) {
       var row = $(this);
       var revealChar = seed.charAt(i + seed.indexOf('-') + 1);
@@ -475,7 +522,7 @@
         hide(row.find('td').last());
       }
     });
-    $('#randomize, #reset, #directions').toggleClass('is-hidden');
+    $('#has-seed, #no-seed, #directions').toggleClass('is-hidden');
   }
 
   $('#randomize').click(function() {
@@ -515,7 +562,7 @@
       $('#locations tr:not(.chapter-row)').each(function() {
         var row = $(this);
         if (row.hasClass('has-item')) {
-          var item = row.find('td').last().html();
+          var item = row.find('td').last().find('[data-item]').attr('data-item');
           var itemIndex = items.indexOf(item);
           seed += itemIndex;
         } else {
@@ -528,8 +575,9 @@
       seed += '-' + '?'.repeat($('#locations tr:not(.chapter-row)').length);
 
       Cookies.set('seed', seed);
+      $('#seed').val(seed);
 
-      $('#randomize, #reset, #directions').toggleClass('is-hidden');
+      $('#has-seed, #no-seed, #directions').toggleClass('is-hidden');
 
       setupReveals();
 
@@ -548,6 +596,7 @@
         var i = $('#locations tr:not(.chapter-row)').index(row) + seed.indexOf('-') + 1;
         seed = seed.substr(0, i) + '+' + seed.substr(i + 1);
         Cookies.set('seed', seed);
+        $('#seed').val(seed);
         button.removeClass('is-loading');
       }, 100);
     });
