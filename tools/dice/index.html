@@ -77,6 +77,10 @@
                 <a data-color="danger" class="button is-danger is-small die is-sided-20" data-shortcut="6"> </a>
                 <p class="subtitle has-text-grey is-size-7">6</p>
               </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="magic" class="button is-magic is-small die is-sided-20" data-shortcut="7"> </a>
+                <p class="subtitle has-text-grey is-size-7">7</p>
+              </div>
             </div>
           </div>
           <div class="level-item level-right">
@@ -199,11 +203,11 @@
       }
       .die:hover {
         filter: 
-          brightness(1.1);
+          brightness(.9);
       }
       .die:active, .die.active {
         filter: 
-          brightness(.9);
+          brightness(1.1);
       }
       .die.is-sided-4 {
         -webkit-mask-image: url(/images/dice/4.svg);
@@ -253,6 +257,16 @@
       }
       #form {
         width: 100%;
+      }
+      .button.is-magic {
+        background-color: #B558E8;
+        border-color: transparent;
+        color: #fff;
+      }
+      .button.is-magic.is-hovered, .button.is-magic:hover {
+        background-color: #ac53db;
+        border-color: transparent;
+        color: #fff;
       }
     </style>
     <script>
@@ -369,8 +383,8 @@
             // $('#colors').stop().fadeToggle('fast');
           } else if (button.attr('data-color')) {
             var newColor = button.attr('data-color');
-            var colorSelector = '.is-white, .is-black, .is-primary, .is-info, .is-warning, .is-danger';
-            var colorClasses = 'is-white is-black is-primary is-info is-warning is-danger';
+            var colorSelector = '.is-white, .is-black, .is-primary, .is-info, .is-warning, .is-danger, .is-magic';
+            var colorClasses = 'is-white is-black is-primary is-info is-warning is-danger is-magic';
             $('#dice').find(colorSelector).removeClass(colorClasses).addClass('is-' + newColor);
             color = newColor;
             $('#colors').fadeOut('fast');
