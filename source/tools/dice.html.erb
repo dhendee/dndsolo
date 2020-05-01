@@ -81,6 +81,10 @@
                 <a data-color="magic" class="button is-magic is-small die is-sided-20" data-shortcut="7"> </a>
                 <p class="subtitle has-text-grey is-size-7">7</p>
               </div>
+              <div class="has-text-centered is-relative is-pulled-left">
+                <a data-color="rainbow" class="button is-rainbow is-small die is-sided-20" data-shortcut="8"> </a>
+                <p class="subtitle has-text-grey is-size-7">8</p>
+              </div>
             </div>
           </div>
           <div class="level-item level-right">
@@ -259,14 +263,28 @@
         width: 100%;
       }
       .button.is-magic {
-        background-color: #B558E8;
+        background-color: #b558e8;
         border-color: transparent;
         color: #fff;
       }
-      .button.is-magic.is-hovered, .button.is-magic:hover {
-        background-color: #ac53db;
+      .button.is-rainbow {
+        background: linear-gradient(-45deg, #b558e8, #f14668, #ffdd57, #00d1b2, #3298dc, #b558e8);
+        background-size: 400% 400%;
+        position: relative;
+        animation: cycle 4s ease-in-out infinite;
         border-color: transparent;
-        color: #fff;
+        color: #0a0a0a;
+      }
+      @keyframes cycle {
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0 50%;
+        }
       }
     </style>
     <script>
@@ -383,8 +401,8 @@
             // $('#colors').stop().fadeToggle('fast');
           } else if (button.attr('data-color')) {
             var newColor = button.attr('data-color');
-            var colorSelector = '.is-white, .is-black, .is-primary, .is-info, .is-warning, .is-danger, .is-magic';
-            var colorClasses = 'is-white is-black is-primary is-info is-warning is-danger is-magic';
+            var colorSelector = '.is-white, .is-black, .is-primary, .is-info, .is-warning, .is-danger, .is-magic, .is-rainbow';
+            var colorClasses = 'is-white is-black is-primary is-info is-warning is-danger is-magic is-rainbow';
             $('#dice').find(colorSelector).removeClass(colorClasses).addClass('is-' + newColor);
             color = newColor;
             $('#colors').fadeOut('fast');
