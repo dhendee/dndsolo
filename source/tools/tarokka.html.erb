@@ -1,3 +1,7 @@
+---
+title: Tarokka Reading Generator
+---
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
@@ -16,42 +20,112 @@
       </button>
     </div>
   </div>
-  <div id="has-seed" class="level is-hidden">
-    <div class="level-left">
-      <div class="field">
-        <div class="control">
-          <button id="reset" class="button">
-            <span class="icon">
-              <i class="fas fa-trash-alt"></i>
-            </span>
-            <span>Reset all</span>        
-          </button>
+  <div id="has-seed" class="is-hidden">
+    <section id="reading" class="section is-italic has-text-centered">
+      <div class="columns">
+        <div class="column is-4 is-offset-4">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-content front">
+                <o class="subtitle is-6">This card tells of a powerful force for good and protection, a holy symbol of great hope.</p>
+              </div>
+              <div class="card-content back">
+                <p id="hint-holy-symbol" class="subtitle is-6"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+      <div class="columns">
+        <div class="column is-4">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-content front">
+                <o class="subtitle is-6">This card tells of history. Knowledge of the ancient will help you better understand your enemy.</p>
+              </div>
+              <div class="card-content back">
+                <p id="hint-tome" class="subtitle is-6"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-content front">
+              <o class="subtitle is-6">Your enemy is a creature of darkness, whose powers are beyond mortality. This card will lead you to him!</p>
+              </div>
+              <div class="card-content back">
+              <p id="hint-strahd" class="subtitle is-6"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-content front">
+              <o class="subtitle is-6">This is a card of power and strength. It tells of a weapon of vengeance: a sword of sunlight.</p>
+              </div>
+              <div class="card-content back">
+              <p id="hint-sunsword" class="subtitle is-6"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+      <div class="columns">
+        <div class="column is-4 is-offset-4">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-content front">
+              <o class="subtitle is-6">This card sheds light on one who will help you greatly in the battle against darkness.</p>
+              </div>
+              <div class="card-content back">
+              <p id="hint-enemy-of-strahd" class="subtitle is-6"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </section>
+    <section id="settings" class="level section">
+      <div class="level-left">
+        <div class="field">
+          <div class="control">
+            <button id="reset" class="button">
+              <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+              <span>Reset all</span>        
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="level-right">
-      <div class="field has-addons">
-        <div class="control">
-          <input id="seed" class="input has-text-grey-lighter has-background-light" type="text" placeholder="Seed">
-        </div>
-        <div class="control">
-          <a id="copy" class="button">
-            <span class="icon">
-              <i class="far fa-copy"></i>
-            </span>
-            <span>Copy State</span>
-          </a>
-        </div>
-        <div class="control">
-          <a id="set" class="button">
-            <span class="icon">
-              <i class="fas fa-undo"></i>
-            </span>
-            <span>Set State</span>
-          </a>
+      <div class="level-right">
+        <div class="field has-addons">
+          <div class="control">
+            <input id="seed" class="input has-text-grey-lighter has-background-light" type="text" placeholder="Seed">
+          </div>
+          <div class="control">
+            <a id="copy" class="button">
+              <span class="icon">
+                <i class="far fa-copy"></i>
+              </span>
+              <span>Copy State</span>
+            </a>
+          </div>
+          <div class="control">
+            <a id="set" class="button">
+              <span class="icon">
+                <i class="fas fa-undo"></i>
+              </span>
+              <span>Set State</span>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
   <p id="directions" class="is-size-6 is-hidden">Tap each row when visiting the location to reveal if an item is present. The first two cards are not tied to a location, and can be revealed immediately. You can copy and paste the current state above, in case you would like to back up your progress or move to a different device.</p>
   <table class="table" id="tarokka">
@@ -59,38 +133,38 @@
       <tr>
         <th>Location</th>
         <th>Tarokka Card</th>
-        <th>Treasure/NPC</th>
+        <th class="has-text-centered">Treasure/NPC</th>
       </tr>
     </thead>
     <tbody id="locations">
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Ah, the worst of all truths: You must face the evil of this land alone!">
         <td rowspan="2"><em>None</em></td>
         <td>Darklord</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="The cards can’t see where the evil lurks. The mists obscure all!">
         <td>Mists</td>
         <td>?</td>
       </tr>      
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 2</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="What you seek lies at the crossroads of life and death, among the buried dead.">
         <td>F</td>
         <td>7 of Coins — Thief</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look to the one who sees all. The treasure is hidden in her camp.">
         <td>G</td>
         <td>2 of Stars — Diviner</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="I see a child — a Vistana. You must hurry, for her fate hangs in the balance. Find her at the lake!">
         <td>L</td>
         <td>A. Tempter</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Your greatest ally will be a wizard. His mind is broken, but his spells are strong.">
         <td>M</td>
         <td>A. Broken One</td>
         <td>?</td>
@@ -98,22 +172,22 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 3</th>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="I see a young man with a kind heart. A mother’s boy! He is strong in body but weak of mind. Seek him out in the village of Barovia.">
         <td>E1</td>
         <td>A. Innocent</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Seek out the brother of the devil’s bride. They call him “the lesser,” but he has a powerful soul.">
         <td>E2</td>
         <td>Executioner</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Evil’s bride is the one you seek!">
         <td>E4</td>
         <td>B. Innocent</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="I see a man of faith whose sanity hangs by a thread. He has lost someone close to him.">
         <td>E5</td>
         <td>B. Broken One</td>
         <td>?</td>
@@ -121,201 +195,201 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 4</th>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="I see a dark figure on a balcony, looking down upon this tortured land with a twisted smile.">
         <td>K6</td>
         <td>Executioner</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="You will find what you seek in the castle, amid the ruins of a place of supplication.">
         <td rowspan="2">K15</td>
         <td>Master of Glyphs — Priest</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He lurks in the darkness where the morning light once shone — a sacred place.">
         <td>Artifact</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a throne fit for a king.">
         <td rowspan="2">K25</td>
         <td>8 of Swords — Dictator</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="The beast sits on his dark throne.">
         <td>Beast</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="A woman hangs above a roaring fire. Find her, and you will find the treasure.">
         <td rowspan="2">K37</td>
         <td>8 of Stars — Necromancer</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He waits for you in a place of wisdom, warmth, and despair. Great secrets are there.">
         <td>Seer</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look for a fortress inside a fortress, in a place hidden behind fire.">
         <td rowspan="2">K41</td>
         <td>9 of Coins — Miser</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="I see a secret place — a vault of temptation hidden behind a woman of great beauty. The evil waits atop his tower of treasure.">
         <td>Tempter</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="What horror is this? I see a man made by a man. Ageless and alone, it haunts the towers of the castle.">
         <td>K59</td>
         <td>A. Marionette</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Go to a place of dizzying heights, where the stone itself is alive!">
         <td rowspan="2">K60</td>
         <td>1 of Stars — Transmuter</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="Look to great heights. Find the beating heart of the castle. He waits nearby.">
         <td>Marionette</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Seek a cask that once contained the finest wine, of which not a drop remains.">
         <td>K63</td>
         <td>4 of Coins — Merchant</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see walls of bones, a chandelier of bones, and a table of bones — all that remains of enemies long forgotten.">
         <td rowspan="2">K67</td>
         <td>6 of Glyphs — Anarchist</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He lurks in a hall of bones, in the dark pits of his castle.">
         <td>Donjon</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a dark room full of bottles. It is the tomb of a guild member.">
         <td>K84, crypt 5</td>
         <td>5 of Coins — Guild Member</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see the skeleton of a deadly warrior, lying on a bed of stone flanked by gargoyles.">
         <td>K84, crypt 7</td>
         <td>1 of Coins — Swashbuckler</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="The thing you seek lies with the dead, under mountains of gold coins.">
         <td>K84, crypt 31</td>
         <td>4 of Swords — Mercenary</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Stir the spirit of the clumsy knight whose crypt lies deep within the castle.">
         <td>K84, crypt 33</td>
         <td>B. Ghost</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Search for the crypt of a wizard ordinaire. His staff is the key.">
         <td>K84, crypt 37</td>
         <td>6 of Stars — Evoker</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Find the Mad Dog’s crypt. The treasure lies within, beneath blackened bones.">
         <td>K84, crypt 38</td>
         <td>6 of Swords — Berserker</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a sleeping prince, a servant of light and the brother of darkness. The treasure lies with him.">
         <td rowspan="3">K85</td>
         <td>2 of Swords — Paladin</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He haunts the tomb of the man he envied above all.">
         <td>Broken One</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He dwells with the one whose blood sealed his doom, a brother of light snuffed out too soon.">
         <td>Innocent</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="That which you seek lies in the womb of darkness, the devil’s lair: the one place to which he must return.">
         <td rowspan="3">K86</td>
         <td>Master of Swords — Warrior</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He lurks in the depths of darkness, in the one place to which he must return.">
         <td>Darklord</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="He lurks in the one place to which he must return — a place of death.">
         <td>Horseman</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Find the mother — she who gave birth to evil.">
         <td rowspan="3">K88</td>
         <td>4 of Glyphs — Shepherd</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="Look to the father’s tomb.">
         <td>Ghost</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="strahd">
+      <tr data-canhas="strahd" data-hint="Look to the mother’s tomb.">
         <td>Raven</td>
         <td>?</td>
       </tr>
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 5</th>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Look for an entertaining man with a monkey. This man is more than he seems.">
         <td>N2</td>
         <td>Artifact</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a nest of ravens. There you will find the prize.">
         <td>N2q</td>
         <td>Master of Coins — Rogue</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="There is a town where all is not well. There you will find a house of corruption, and within, a dark room full of still ghosts.">
         <td>N3s</td>
         <td>9 of Swords — Torturer</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Search for a troubled young man surrounded by wealth and madness. His home is his prison.">
         <td>N3t</td>
         <td>A. Donjon</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Find a girl driven to insanity, locked in the heart of her dead father’s house. Curing her madness is key to your success.">
         <td>N4n</td>
         <td>B. Donjon</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look for a wealthy woman. A staunch ally of the devil, she keeps the treasure under lock and key, with the bones of an ancient enemy.">
         <td rowspan="2">N4o</td>
         <td>9 of Glyphs — Traitor</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="I see a dead man of noble birth, guarded by his widow. Return life to the dead man’s corpse, and he will be your staunch ally.">
         <td>A. Horseman</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="A man is not what he seems. He comes here in a carnival wagon. Therein lies what you seek.">
         <td>N5</td>
         <td>7 of Stars — Illusionist</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="A wounded elf has what you seek. He will part with the treasure to see his dark dreams fulfilled.">
         <td rowspan="2">N9a</td>
         <td>6 of Coins — Beggar</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Look for a dusk elf living among the Vistani. He has suffered a great loss and is haunted by dark dreams. Help him, and he will help you in return.">
         <td>Seer</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="A man of death named Arrigal will forsake his dark lord to serve your cause. Beware! He has a rotten soul.">
         <td>N9c</td>
         <td>B. Horseman</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="The Vistani have what you seek. A missing child holds the key to the treasure’s release.">
         <td>N9i</td>
         <td>8 of Coins — Tax Collector</td>
         <td>?</td>
@@ -323,7 +397,7 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 6</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a lonely mill on a precipice. The treasure lies within.">
         <td>O4</td>
         <td>7 of Glyphs — Charlatan</td>
         <td>?</td>
@@ -331,17 +405,17 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 7</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="The treasure lies in a dragon’s house, in hands once clean and now corrupted.">
         <td>Q36</td>
         <td>1 of Swords — Avenger</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="I see a fallen paladin of a fallen order of knights. He lingers like a ghost in a dead dragon’s lair.">
         <td>Q37</td>
         <td>A. Ghost</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a fallen house guarded by a great stone dragon. Look to the highest peak.">
         <td>Q53</td>
         <td>4 of Stars — Abjurer</td>
         <td>?</td>
@@ -349,36 +423,36 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 8</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look to the west. Find a pool blessed by the light of the white sun.">
         <td>S4</td>
         <td>3 of Glyphs — Healer</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a garden dusted with snow, watched over by a scarecrow with a sackcloth grin. Look not to the garden but to the guardian.">
         <td>S9</td>
         <td>2 of Glyphs — Missionary</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="The treasure you seek is hidden behind the sun, in the house of a saint.">
         <td rowspan="2">S13</td>
         <td>1 of Glyphs — Monk</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="I hear a wedding bell, or perhaps a death knell. It calls thee to a mountainside abbey, wherein you will find a woman who is more than the sum of her parts.">
         <td>B. Tempter</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Look for a man of music, a man with two heads. He lives in a place of great hunger and sorrow.">
         <td>S17</td>
         <td>B. Marionette</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="A Vistana wanders this land alone, searching for her mentor. She does not stay in one place for long. Seek her out at Saint Markovia’s abbey, near the mists.">
         <td>S19</td>
         <td>Mists</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look to a place where sickness and madness are bred. Where children once cried, the treasure lies still.">
         <td>S23</td>
         <td>2 of Coins — Philanthropist</td>
         <td>?</td>
@@ -386,7 +460,7 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 9</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Go to the mountains. Climb the white tower guarded by golden knights.">
         <td>T6</td>
         <td>3 of Swords — Soldier</td>
         <td>?</td>
@@ -394,12 +468,12 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 10</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a dead village, drowned by a river, ruled by one who has brought great evil into the world.">
         <td>U3</td>
         <td>9 of Stars — Conjurer</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a kneeling woman — a rose of great beauty plucked too soon. The master of the marsh knows of whom I speak.">
         <td>U5</td>
         <td>3 of Stars — Enchanter</td>
         <td>?</td>
@@ -407,7 +481,7 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 11</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look for a wizard’s tower on a lake. Let the wizard’s name and servant guide you to that which you seek.">
         <td>V7</td>
         <td>Master of Stars — Wizard</td>
         <td>?</td>
@@ -415,12 +489,12 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 12</th>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="Find the leader of the feathered ones who live among the vines. Though old, he has one more fight left in him.">
         <td></td>
         <td>Raven</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look to the wizard of wines! In wood and sand the treasure hides.">
         <td>W10</td>
         <td>3 of Coins — Trader</td>
         <td>?</td>
@@ -428,17 +502,17 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 13</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="I see a faceless god. He awaits you at the end of a long and winding road, deep in the mountains.">
         <td>X5a</td>
         <td>7 of Swords — Hooded One</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="The treasure is hidden in a small castle beneath a mountain, guarded by amber giants.">
         <td>X20</td>
         <td>5 of Stars — Elementalist</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="What you seek lies in a pile of treasure, beyond a set of amber doors.">
         <td>X40</td>
         <td>8 of Glyphs — Bishop</td>
         <td>?</td>
@@ -446,7 +520,7 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 14</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="An evil tree grows atop a hill of graves where the ancient dead sleep. The ravens can help you find it. Look for the treasure there.">
         <td>Y4</td>
         <td>5 of Glyphs — Druid</td>
         <td>?</td>
@@ -454,12 +528,12 @@
       <tr class="chapter-row">
         <th colspan="3" class="has-text-centered">Chapter 15</th>
       </tr>
-      <tr data-canhas="tome, holy-symbol, sunsword">
+      <tr data-canhas="tome, holy-symbol, sunsword" data-hint="Look for a den of wolves in the hills overlooking a mountain lake. The treasure belongs to Mother Night.">
         <td rowspan="2">Z7</td>
         <td>5 of Swords — Myrmidon</td>
         <td>?</td>
       </tr>
-      <tr data-canhas="enemy-of-strahd">
+      <tr data-canhas="enemy-of-strahd" data-hint="A werewolf holds a secret hatred for your enemy. Use her hatred to your advantage.">
         <td>Beast</td>
         <td>?</td>
       </tr>
@@ -515,6 +589,8 @@
       if (itemChar != 'x') {
         var item = items[parseInt(itemChar)];
         row.addClass('has-item').find('td').last().html(labels[items.indexOf(item)]);
+        var hint = row.attr('data-hint');
+        $('#hint-' + item).html(hint);
       } else {
         row.find('td').last().html('<em>No item</em>');
       }
@@ -554,6 +630,8 @@
         if (!row.hasClass('has-item') && row.data('canhas').indexOf(item) != -1) {
           row.addClass('has-item');
           row.find('td').last().html(labels[items.indexOf(item)]);
+          var hint = row.attr('data-hint');
+          $('#hint-' + item).html(hint);
         } else {
           placeItem(item);
         }
@@ -620,5 +698,53 @@
     top: 0;
     left: 0;
     margin: 0 auto;
+  }
+
+  .card-container {
+    position: relative;
+    height: 20rem;
+    width: 100%;
+    perspective: 500px;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    background: none;
+    border-radius: 15px;
+  }
+
+  .card-container:hover .card {
+    transform: rotateY( 180deg ) ;
+    transition: transform 0.5s;
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  .front {
+    background: hsl(0, 0%, 96%);
+    border: 7px solid hsl(0, 0%, 48%);
+  }
+
+  .back {
+    transform: rotateY( 180deg );
+    background: hsl(0, 0%, 29%);
+    border: 7px solid hsl(0, 0%, 86%);    
+  }
+
+  .back p {
+    color: white;
   }
 </style>
