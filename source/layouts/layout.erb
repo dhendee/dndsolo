@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="How to play Dungeons & Dragons (D&D) solo without a Dungeon Master (DM).">
     <meta name="keywords" content="D&D, DnD, dnd, Dungeons & Dragons, solo play, DM, Dungeon Master, solo, one PC">
-    <title>DnD Solo<%= ' - ' + current_article.title unless current_article.nil? %></title>
+    <title>DnD Solo<%= ' - ' + current_article.title unless current_article.nil? %><%= ' - ' + current_page.data.title if !current_page.data.title.nil?  %></title>
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <%= stylesheet_link_tag "site" %>
